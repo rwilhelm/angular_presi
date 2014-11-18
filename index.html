@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en" ng-app="presentationApp">
+<head>
+  <meta charset="utf-8">
+
+  <title>WIFI-CAM</title>
+
+  <meta name="description" content="YAAP: Yet Another Angularjs Presentation">
+  <meta name="author" content="Carlos Justiniano">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+  <link rel="stylesheet" href="css/presentation.css">
+
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if (window.location.search.match(/print-pdf/gi)) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'css/print/pdf.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- Title slide  -------------------------------------------------------------------->
+<section data-transition="cube" data-transition-speed="medium">
+  <img width="280" style="border: 0; padding: 20px;" src="images/uni_logo.png"> <br>
+  <img width="280" style="border: 0; padding: 20px;" src="images/cvlogo.png">
+
+  <br><br><br>
+
+  <h3>Entwicklung und Evaluation einer Fotografie-Assistenz App</h3>
+
+  <p>
+    <small>Andreas Penner</small>
+  </p>
+</section>
+
+
+<!-- Motivation -------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Motivation</h2>
+  <aside class="notes">
+    <p></p>
+  </aside>
+</section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+  <h2>Wozu einen Fotoassistenten</h2><!-- Wozu Fotoassistent -->
+    <ul>
+      <li>Kameras mit sehr hohen Auflösungen</li>
+      <li>Hohe Ansprüche an Bilderqualität</li>
+      <li>Höhste Qualität nur unter idealen Bedingungen: Belichtung, ISO, Blende, Fokussierung,...</li>
+      <li>Fotograf verbringt viel Zeit mit Prüfen</li>
+    </ul>
+    <aside class="notes">
+    </aside>
+  </section>
+
+
+  <!-- Motivation32 -------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Wie kann der Fotograf unterstützt werden?</h2>
+    <ul>
+      <li>Feedback zu Bildqualität</li>
+      <li>Exif Date vor Ort pflegen</li>
+      <li>GPS Daten und Personen in Bildmetadaten speichern</li>
+      <li>Visualisierung der Schärfe</li>
+      <li>Verwalten und Organisieren der Bilder </li>
+    </ul>
+    <aside class="notes">
+    </aside>
+  </section>
+
+<!-- Motivation -------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+  <h2>Fehlfokusierung</h2>
+  <img  width="512" style="border: 0; padding: 20px;" src="images/back-eye-front.jpg">
+    <aside class="notes">
+    </aside>
+  </section>
+
+<!-- Motivation -------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+  <h2>Fehlfokusierung</h2>
+  <img width="640" style="border: 0; padding: 20px;" src="images/back-eye-front-cutout.jpg">
+    <aside class="notes">
+    </aside>
+  </section>
+
+  <!-- Motivation3 -------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Idealer Fotoassistent</h2>
+    <ul>
+      <li>Sollte in der Kamera verbaut sein</li>
+      <li>Kameras jedoch nur eingeschränkt programmierbar</li>
+      <li>Lösung: Smartphone nutzen</li>
+    </ul>
+    <aside class="notes">
+    </aside>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Smartphone als Photoassistent</h2>
+    <ul>
+      <li>Bildübertragung über WLAN</li>
+      <li>WLAN in Kamera eingebaut</li>
+      <li>Oder über SD Karte</li>
+    </ul>
+    <aside class="notes">
+  
+   </aside>
+  </section>
+
+  <!-- -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Bisherige Apps</h2>
+    <ul>
+      <li>Übertragung der Bilder</li>
+      <li>LiveView - Kamerasteuerung</li>
+      <li>Bildbetrachtung</li>
+    </ul>
+    <aside class="notes">
+
+    </aside>
+  </section>
+
+  <!--  -------------------------------------------------------------------------->
+  <section data-transition="linear" data-transition-speed="medium">
+
+    
+    <p>Diese Arbeit versucht das Smartphone nicht nur ... sonder aktiv zu nutzen.</p>
+  
+  <br><br>
+  <p><b>Beispielanwendung</b></p>
+  <ul>
+    <li>Machbarkeit</li>
+    <li>Testen der BV-algorithmen</li>
+  </ul>
+
+    <aside class="notes">
+
+    </aside>
+  </section>
+
+</section>
+
+<!-- Umseetzung -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+
+  <section data-transition="linear" data-transition-speed="medium">
+  <h2>Umsetzung der Beispielanwendung</h2>
+    <aside class="notes">
+    </aside>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+
+    <p>Android Smartphone</p>
+
+    <p>Transcend WI-FI SD Karte + DSLR</p>
+
+    <img width="280" style="border: 0; padding: 20px;" src="images/android.png">
+    <img width="280" style="border: 0; padding: 20px;" src="images/wifisd.png">
+  
+    <aside class="notes">
+    </aside>
+  </section>
+
+<!-- Umsetzung2 -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Anforderungen</h2>
+
+  <ul>
+    <li>WLAN Verbindung aufbauen</li>
+    <li>Bild übertragen und speichern</li>
+    <li>Bild in voller Auflösung darstellen</li>
+    <li>Gallerie, Sammlungen, Bildinformationen</li>
+    <li>Hardwarebeschleunigte Bildverarbeitung</li> 
+  </ul>
+  <aside class="notes">
+  </aside>
+</section>
+
+<!-- Umsetzung -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+
+  <h2>Bildbetrachtung</h2>
+    <img height="480" style="border: 0; padding: 20px;" src="images/viewer.png">
+  <ul>
+    <li>Darstellen empfangener Bilder </li>
+    <li>pinch, swipe, double tap </li>
+    <li>Teilen, Löschen, Informationen</li>
+    <li>Kompositionsgitter</li>
+    <li>Heatmap</li>
+<br><br><br><br><br><br>
+
+  </ul>
+
+  <aside class="notes">
+  </aside>
+</section>
+
+
+<!-- Umsetzung -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+
+  <h2>Gallerie, Sammlungen, Bildinformationen</h2>
+    <img height="480" style="border: 0; padding: 20px;" src="images/gallerie.png">
+    <img height="480" style="border: 0; padding: 20px;" src="images/sammlung.png">
+    <img height="480" style="border: 0; padding: 20px;" src="images/info.png">
+  <aside class="notes">
+  </aside>
+</section>
+
+<!-- Umsetzung -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+
+  <h2>Navigation, Optionen</h2>
+  <img height="480" style="border: 0; padding: 20px;" src="images/nav.png">    
+    <img height="480" style="border: 0; padding: 20px;" src="images/opt1.png">
+    <img height="480" style="border: 0; padding: 20px;" src="images/opt2.png">
+  <aside class="notes">
+  </aside>
+
+</section>
+
+</section>
+<!-- Technische Umsetzungs -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Technische Umsetzung</h2>
+  <aside class="notes">
+
+  </aside>
+</section>
+
+<!-- -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>WLAN Verbindung</h2>
+
+  <p>Funktionsweise durch Reverse Engineering mit <i>netcat</i><small>[1]</small> und Perl-Script<small>[2]</small> rekonstruiert.</p>
+<br>
+  <ul>
+    <li>Android Service für Verbindungsaufbau</li>
+    <li>Registrierung über UDP Pakete</li>
+  </ul>
+  <!--@formatter:off-->
+    <pre><code contenteditable style="font-size: 18px; margin-top: 20px;">
+Transcend WiFi SD - interface=mlan0
+ip=192.168.11.254
+netmask=255.255.255.0
+router=0.0.0.0
+Mode=server
+essid=WlanSD
+    </code></pre>
+    <!--@formatter:on-->
+
+    <hr>
+    <small>[1] http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man1/nc.1</small>
+    <small>[2] http://sourceforge.net/projects/transsvr/</small>
+  <aside class="notes">
+  </aside>
+</section>
+
+<!-- -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Bild Download</h2>
+
+  <ul>
+    <li>TCP Packet informiert über neue Bilder</li>
+    <li>HTTP Server auf SD Karte</li>
+    <li>HTTP/GET für Bilderdownload</li>
+  </ul>
+
+  <!--@formatter:off-->
+    <pre><code contenteditable style="font-size: 18px; margin-top: 20px;">
+/mnt/sd/DCIM/109_0302/IMGP0102.JPG
+    </code></pre>
+    <!--@formatter:on-->
+
+  <!--@formatter:off-->
+    <pre><code contenteditable style="font-size: 18px; margin-top: 20px;">
+http://admin:admin@192.168.11.254/sd/DCIM/109_0302/IMGP0102.JPG
+    </code></pre>
+    <!--@formatter:on-->
+
+  <aside class="notes">
+  </aside>
+</section>
+
+<!-- -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Sequenzdiagramm</h2>
+<img width="480" style="border: 0; padding: 20px;" src="images/sequenz.png">
+  <aside class="notes">
+
+  </aside>
+
+</section>
+
+<!-- -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h3>Hardwarebeschleunigte Bildverarbeitung unter Android</h3>
+
+  <p>Lange verzögerungen würden den Fotoassistenten praxisuntauglich machen.</p>
+<br>
+  <ul>
+    <li>Verarbeitung mit Java VM <b>sehr langsam</b></li>
+    <li>Alternativen: RenderScript, NDK, JavaCPP + JavaCV</li>
+  </ul>
+<br><br>
+  <p>Entscheidung fiel auf RenderScript.</p>
+
+  <aside class="notes">
+  </aside>
+</section>
+
+
+<!-- -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h3>Heatmap Beispiel 1</h3>
+  <img height="550" style="border: 0; padding: 20px;" src="images/mask.jpg">
+
+  <aside class="notes">
+  </aside>
+</section>
+
+<!-- -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h3>Heatmap Beispiel 2</h3>
+  <img height="550" style="border: 0; padding: 20px;" src="images/heatmap.png">
+
+  <aside class="notes">
+  </aside>
+</section>
+
+<!-- -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <h3>Heatmap</h3>
+  <img height="550" style="border: 0; padding: 20px;" src="images/heatmap-aufbau.png">
+
+  <aside class="notes">
+  </aside>
+</section>
+
+<!-- -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+    <h2>Benutzte Bibliotheken</h2>
+    <h4>Die nicht Teil der Android SDK sind</h4>
+
+    <ul>
+      <li><span class="pres-bold pres-blue">Subsampling Zoom Image View</span>: Laden und anzeigen sehr große Bilder </li>
+      <li><span class="pres-bold pres-blue">SystemBarTint</span>: Android UI Menü- und Systemleisten färben.
+      </li>
+      <li><span class="pres-bold pres-blue">AChartEngine</span>: Darstellen von Graphen und Tabellen.
+      </li>
+    </ul>
+  </section>
+
+</section>
+
+<!-- Data binding -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Verfahren zur Fokusbestimmung</h2>
+    <aside class="notes">
+      <p></p>
+    </aside>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+<h2>Data Mining</h2>
+
+<p> Wissensgewinnung aus großen Datenmengen, durch die geeignete Auswahl von Verfahren und Algorithmen.</p> 
+<br>
+
+    <h2>CRISP-DM</h2>
+    <p><b>C</b>ross <b>I</b>ndustry <b>S</b>tandard <b>P</b>rocess for <b>D</b>ata <b>M</b>ining</p>
+    <ul>
+      <li>Business Understanding</li>
+      <li>Data Unterstanding</li>
+      <li>Data Preparation</li>
+      <li>Modeling</li>
+      <li>Evaluation</li>
+      <li>Deployment</li>
+    </ul>
+    <aside class="notes">
+    </aside>
+  </section>  
+
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>Business Understanding</h3>
+
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h4>Business Understanding <br></h4>
+    <h3>Chromatische Aberration</h3>
+
+    <ul>
+      <li><span class="pres-bold pres-blue">In der Fotografie</span>: Unerwünschtes beeinflussen -> herausrechnen</li>
+      <li><span class="pres-bold pres-blue">Muhammad Atif 2013</span>: Tiefenbild über CA's bestimmen</li>
+      <li><span class="pres-bold pres-blue">Garcia et. al. 2000</span>: Chromatische Aberration für die Gewinnung von Bildinformationen nutzen.</li>
+     </ul>
+
+  </section>
+
+    <section data-transition="linear" data-transition-speed="medium">
+    <h4>Business Understanding <br></h4>
+    <h3>Chromatische Aberration</h3>
+
+
+    <img width="520" style="border: 0; padding: 20px;" src="images/ca_edges.jpg">
+
+
+  </section>
+
+    <section data-transition="linear" data-transition-speed="medium">
+          <h4>Business Understanding <br></h4>
+    <h3>Chromatische Aberration</h3>
+
+    <img width="550" style="border: 0; padding: 20px;" src="images/chrom_1.png">
+
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h4>Business Understanding <br></h4>
+    <h3>Chromatische Aberration</h3>
+
+    <img width="550" style="border: 0; padding: 20px;" src="images/chrom_2.png">
+
+  </section>
+
+
+
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>Data Unterstanding</h3>
+
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h4>Data Unterstanding <br></h4>
+    <h3>Bildaufnahme</h3>
+
+    <ul>
+      <li><span class="pres-bold pres-blue">Hardware</span>: Pentax K5, Pentax M 50mm f/1.7, Stativ</li>
+      <li><span class="pres-bold pres-blue">Szene</span>: verschiedene Orte, Personen, Lichtsituationen, fester Abstand</li>
+      <li><span class="pres-bold pres-blue">Einstellungen</span>: Zeitautomatik, ISO200, f/1.7, Blendenreihe, keine Bildoptimierung durch die Kamera</li>
+    </ul>
+   
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h4>Data Unterstanding <br></h4>
+    <h3>Klassifizierung</h3>
+
+    <ul>
+      <li><span class="pres-bold pres-blue">A</span>: scharf, unscharf mit Frontfokus, unfscharf mit Backfokus</li>
+      <li><span class="pres-bold pres-blue">B</span>: scharf, unscharf</li>
+    </ul>
+   <br><br>
+    <h3>Datenqualität</h3>
+
+        <ul>
+      <li>Jede Aufnahme wird bei der Klassifizierung überprüft</li>
+      <li>viele beschränkungen: Blende, ISO, Fokussierungen</li>
+    </ul>
+
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>Data Preparation</h3>
+
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h4>Data Preparation<br></h4>
+    <h3>Vorverarbeitung</h3>
+
+  <img style="border: 0; padding: 20px;" src="images/equ1.svg"> <br>
+
+    <ul>
+      <li>5x5 Laplace Operator</li>
+      <li>rgb-Faltung</li>
+    </ul>
+
+  </section>
+
+ <section data-transition="linear" data-transition-speed="medium">
+    <h4>Data Preparation<br></h4>
+    <h3>Vorverarbeitung</h3>
+
+   <img width="480" style="border: 0; padding: 20px;" src="images/tommy.png">
+
+  </section>
+
+ <section data-transition="linear" data-transition-speed="medium">
+    <h4>Data Preparation<br></h4>
+    <h3>Augendetektion</h3>
+
+   <img width="480" style="border: 0; padding: 20px;" src="images/eyes.png"> <br>
+
+   <ul>
+      <li>Augendetektion</li>
+      <li>Position, Abstand</li>
+      <li>Rechteck um Augen für Weiterverarbeitung</li>
+    </ul>
+
+  </section>
+
+   <section data-transition="linear" data-transition-speed="medium">
+    <h4>Data Preparation<br></h4>
+    <h3>Merkmalsextraktion</h3>
+
+  <ul>
+      <li>Histrogramm für jeden Farbkanal</li>
+      <li>Wertebereich [-6120,..,6120] auf [0,..,255] abgebildet</li>
+  </ul>
+
+  <img width="400" style="border: 0; padding: 20px;" src="images/back_histogram.png">  
+  <img width="400" style="border: 0; padding: 20px;" src="images/eye_histogram.png"> 
+
+  <p> Links: Back-Fokus, Rechts: Fokus auf Augen
+  <br>
+
+
+  </section>
+
+   <section data-transition="linear" data-transition-speed="medium">
+    <h4>Data Preparation<br></h4>
+    <h3>Merkmalsextraktion</h3>
+
+  <img style="border: 0; padding: 20px;" src="images/momentum.svg">  <br>
+1. Moment
+
+  <br> <br>
+  <img style="border: 0; padding: 20px;" src="images/ratio.svg">  <br>
+Verhältnisse der Momente
+
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>Modeling</h3>
+
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h4>Modeling<br></h4>
+    <h3>Verfahren</h3>
+
+  <ul>
+      <li>Logistische Regression</li>
+      <li>k-nächste-Nachbar-Klassifikator</li>
+      <li>10-fachen Kreuzvalidierung</li>
+  </ul>
+
+  </section>
+
+ <section data-transition="linear" data-transition-speed="medium">
+    <h3>Evaluation</h3>
+
+  </section>
+
+    <section data-transition="linear" data-transition-speed="medium">
+    <h4>Evaluation<br></h4>
+    <h3>Logistische Regression</h3>
+
+<p>Vorhersage über Momente</p>
+  <ul>
+      <li>A<sub>c</sub> = 91,1 %</li>
+      <li>R<sub>a</sub> = 98 %</li>
+      <li>R<sub>bc</sub> = 88 % </li>
+  </ul> <br>
+    <img style="border: 0; padding: 20px;" src="images/eval1.png"> 
+
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h4>Evaluation<br></h4>
+    <h3>Logistische Regression</h3>
+
+  <p>Vorhersage über Verhältnisse</p>
+  <ul>
+      <li>A<sub>c</sub> = 85,1 %</li>
+      <li>R<sub>a</sub> = 91 %</li>
+      <li>R<sub>bc</sub> = 86 % </li>
+  </ul> <br>
+    <img style="border: 0; padding: 20px;" src="images/eval2.png"> 
+
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h4>Evaluation<br></h4>
+    <h3>Markante merkmale</h3>
+
+    <img style="border: 0; padding: 20px;" src="images/graph.png"> 
+
+    <p>Klassen: <font color="green">back</font>, <font color="red">front</font>, <font color="#0000FF">eye</font></p>
+
+  </section>
+
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h4>Evaluation<br></h4>
+    <h3>Vergleich</h3>
+
+  <ul>
+      <li>Implementation rein über Kantenkontraste</li>
+      <!--<li>Ähnlich dem Verfahren der Kantenkontrastfokusierung</li>-->
+  </ul>
+  <br><br>
+  Logistische Regression : 
+  <p>
+  <img style="border: 0; padding: 10px;" src="images/eval3.png"> </p>
+
+  k-nächste-Nachbar-Klassifikator : 
+  <p>
+  <img style="border: 0; padding: 10px;" src="images/eval4.png">  </p>
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h3>Deployment</h3>
+
+  </section>
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h4>Deployment<br></h4>
+
+  <ul>
+      <li>Implementation über k-Nächste-Nachbarn-Klassifikator und logistische Regression in APP möglich</li>
+      <li>Test mit verschiedenene Kamereaobjektiven</li>
+      <li>Test mit unterschiedlichen Belenden, ISO, Fokussierungen</li>
+      <li>Weiterer CRISP-DM Durchlauf</li>
+  </ul>
+  </section>
+
+</section>
+
+
+<!--  -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+<section data-transition="linear" data-transition-speed="medium">
+  <h2>Fazit</h2>
+ 
+ <h4>Umsetzung der App</h4>
+ <ul>
+    <li>Verbindung mit Kamera, Übertragung von Bildern</li>
+    <li>Darstellung von Bildern, Gallerie, Sammlungen</li>
+    <li>Heatmap, Kompositionsgitter</li>
+ </ul>
+<br><br><br>
+ <h4>Verfahren zur Fokusdetektion</h4>
+ <ul>
+    <li>Auflösungs unabhängig</li>
+    <li>Logistische Regression >90% Genauigkeit </li>
+    <li>Unterscheidung Frontfokus/Backfokus</li>
+    <li>Andere Optiken ?</li>
+ </ul>
+
+
+  <aside class="notes">
+ </aside>
+  <aside class="notes"></aside>
+</section>
+</section>
+
+
+<!-- -------------------------------------------------------------------------->
+<section data-transition="linear" data-transition-speed="medium">
+
+  <section data-transition="linear" data-transition-speed="medium">
+    <h2>Ausblick</h2>
+
+    <ul>
+      <li><span class="pres-bold pres-blue">Heatmap</span>: Stark rauschanfällig -> median Filter und weitere Vorverarbeitung</li>
+      <li><span class="pres-bold pres-blue">Fokusdetektion</span>: Testen diverser Objektive (Achromaten), weitere Merkmale </li>
+      <li><span class="pres-bold pres-blue">Fotoassistent</span>: Kommunikation mit Nutzer wie Vorschläge für Verbesserung und Einstellungen </li>
+      <li><span class="pres-bold pres-blue">Nutzerstudie</span>:  </li>
+     </ul>
+
+  </section>
+
+</section>
+
+</div>
+</div>
+
+
+<!-- Angular project files -->
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-animate.min.js"></script>
+<script src="js/presentationapp.js"></script>
+<script src="js/ph-panel.js"></script>
+
+<!-- reveal -->
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+    transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Parallax scrolling
+    //    parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+    //    parallaxBackgroundSize: '2100px 900px',
+
+    leap: {
+      //gestureDelay: 1000,
+      //pointerTolerance: 40,
+      naturalSwipe: true,    // Invert swipe gestures
+      pointerOpacity: 0.25,      // Set pointer opacity to 0.5
+      pointerColor: '#FFFFFF' // color pointer
+    },
+
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+      { src: 'lib/js/classList.js', condition: function() {
+        return !document.body.classList;
+      } },
+      { src: 'plugin/markdown/marked.js', condition: function() {
+        return !!document.querySelector('[data-markdown]');
+      } },
+      { src: 'plugin/markdown/markdown.js', condition: function() {
+        return !!document.querySelector('[data-markdown]');
+      } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+        hljs.initHighlightingOnLoad();
+      } },
+      { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() {
+        return !!document.body.classList;
+      } },
+      { src: 'plugin/notes/notes.js', async: true, condition: function() {
+        return !!document.body.classList;
+      } },
+      { src: 'plugin/leap/leap-0.2.0.js', async: true }
+    ]
+  });
+</script>
+</body>
+</html>
