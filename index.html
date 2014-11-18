@@ -64,12 +64,12 @@
 </section>
 
   <section data-transition="linear" data-transition-speed="medium">
-  <h2>Wozu einen Fotoassistenten</h2><!-- Wozu Fotoassistent -->
+  <h2>Wozu einen Fotoassistenten?</h2><!-- Wozu Fotoassistent -->
     <ul>
       <li>Kameras mit sehr hohen Auflösungen</li>
-      <li>Hohe Ansprüche an Bilderqualität</li>
-      <li>Höhste Qualität nur unter idealen Bedingungen: Belichtung, ISO, Blende, Fokussierung,...</li>
-      <li>Fotograf verbringt viel Zeit mit Prüfen</li>
+      <li>Hohe Ansprüche an die Qualität der Bilder</li>
+      <li>Höchste Qualität nur unter idealen Bedingungen: Belichtung, ISO, Blende, Fokussierung, …</li>
+      <li>Fotograf verbringt viel Zeit mit dem Prüfen</li>
     </ul>
     <aside class="notes">
     </aside>
@@ -80,11 +80,11 @@
   <section data-transition="linear" data-transition-speed="medium">
     <h2>Wie kann der Fotograf unterstützt werden?</h2>
     <ul>
-      <li>Feedback zu Bildqualität</li>
-      <li>Exif Date vor Ort pflegen</li>
-      <li>GPS Daten und Personen in Bildmetadaten speichern</li>
+      <li>Feedback zur Bildqualität</li>
+      <li>Exif-Date vor Ort einpflegen</li>
+      <li>GPS-Daten und Personen in Bildmetadaten speichern</li>
       <li>Visualisierung der Schärfe</li>
-      <li>Verwalten und Organisieren der Bilder </li>
+      <li>Verwalten und Organisieren der Bilder</li>
     </ul>
     <aside class="notes">
     </aside>
@@ -121,9 +121,9 @@
   <section data-transition="linear" data-transition-speed="medium">
     <h2>Smartphone als Photoassistent</h2>
     <ul>
-      <li>Bildübertragung über WLAN</li>
+      <li>Bildübertragung per WLAN</li>
       <li>WLAN in Kamera eingebaut</li>
-      <li>Oder über SD Karte</li>
+      <li>Oder über SD-Karte</li>
     </ul>
     <aside class="notes">
   
@@ -147,7 +147,7 @@
   <section data-transition="linear" data-transition-speed="medium">
 
     
-    <p>Diese Arbeit versucht das Smartphone nicht nur ... sonder aktiv zu nutzen.</p>
+    <p>Diese Arbeit versucht das Smartphone nicht nur <strong>passiv?</strong> sonder aktiv zu nutzen.</p>
   
   <br><br>
   <p><b>Beispielanwendung</b></p>
@@ -190,7 +190,7 @@
   <h2>Anforderungen</h2>
 
   <ul>
-    <li>WLAN Verbindung aufbauen</li>
+    <li>WLAN-Verbindung aufbauen</li>
     <li>Bild übertragen und speichern</li>
     <li>Bild in voller Auflösung darstellen</li>
     <li>Gallerie, Sammlungen, Bildinformationen</li>
@@ -206,8 +206,8 @@
   <h2>Bildbetrachtung</h2>
     <img height="480" style="border: 0; padding: 20px;" src="images/viewer.png">
   <ul>
-    <li>Darstellen empfangener Bilder </li>
-    <li>pinch, swipe, double tap </li>
+    <li>Darstellen empfangener Bilder</li>
+    <li>pinch, swipe, double tap</li>
     <li>Teilen, Löschen, Informationen</li>
     <li>Kompositionsgitter</li>
     <li>Heatmap</li>
@@ -255,13 +255,13 @@
 
 <!-- -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
-  <h2>WLAN Verbindung</h2>
+  <h2>WLAN-Verbindung</h2>
 
-  <p>Funktionsweise durch Reverse Engineering mit <i>netcat</i><small>[1]</small> und Perl-Script<small>[2]</small> rekonstruiert.</p>
+  <p>Funktionsweise durch Reverse Engineering mit <i>netcat</i><small>[1]</small> und einem Perl-Skript<small>[2]</small> rekonstruiert.</p>
 <br>
   <ul>
-    <li>Android Service für Verbindungsaufbau</li>
-    <li>Registrierung über UDP Pakete</li>
+    <li>Android-Service für Verbindungsaufbau</li>
+    <li>Registrierung über UDP-Pakete</li> <!-- "mittels UDP" ? -->
   </ul>
   <!--@formatter:off-->
     <pre><code contenteditable style="font-size: 18px; margin-top: 20px;">
@@ -286,8 +286,8 @@ essid=WlanSD
   <h2>Bild Download</h2>
 
   <ul>
-    <li>TCP Packet informiert über neue Bilder</li>
-    <li>HTTP Server auf SD Karte</li>
+    <li>TCP-Paket informiert über neue Bilder</li>
+    <li>HTTP-Server läuft auf der SD-Karte</li>
     <li>HTTP/GET für Bilderdownload</li>
   </ul>
 
@@ -324,7 +324,7 @@ http://admin:admin@192.168.11.254/sd/DCIM/109_0302/IMGP0102.JPG
   <p>Lange verzögerungen würden den Fotoassistenten praxisuntauglich machen.</p>
 <br>
   <ul>
-    <li>Verarbeitung mit Java VM <b>sehr langsam</b></li>
+    <li>Verarbeitung mit Java-VM <b>sehr langsam</b></li>
     <li>Alternativen: RenderScript, NDK, JavaCPP + JavaCV</li>
   </ul>
 <br><br>
@@ -365,13 +365,13 @@ http://admin:admin@192.168.11.254/sd/DCIM/109_0302/IMGP0102.JPG
 <!-- -------------------------------------------------------------------------->
 <section data-transition="linear" data-transition-speed="medium">
     <h2>Benutzte Bibliotheken</h2>
-    <h4>Die nicht Teil der Android SDK sind</h4>
+    <h4>Die nicht Teil der Android-SDK sind</h4>
 
     <ul>
-      <li><span class="pres-bold pres-blue">Subsampling Zoom Image View</span>: Laden und anzeigen sehr große Bilder </li>
-      <li><span class="pres-bold pres-blue">SystemBarTint</span>: Android UI Menü- und Systemleisten färben.
+      <li><span class="pres-bold pres-blue">Subsampling Zoom Image View</span>: Laden und anzeigen sehr großer Bilder</li>
+      <li><span class="pres-bold pres-blue">SystemBarTint</span>: Android UI Menü- und Systemleisten färben
       </li>
-      <li><span class="pres-bold pres-blue">AChartEngine</span>: Darstellen von Graphen und Tabellen.
+      <li><span class="pres-bold pres-blue">AChartEngine</span>: Darstellen von Graphen und Tabellen
       </li>
     </ul>
   </section>
@@ -390,7 +390,7 @@ http://admin:admin@192.168.11.254/sd/DCIM/109_0302/IMGP0102.JPG
   <section data-transition="linear" data-transition-speed="medium">
 <h2>Data Mining</h2>
 
-<p> Wissensgewinnung aus großen Datenmengen, durch die geeignete Auswahl von Verfahren und Algorithmen.</p> 
+<p>Wissensgewinnung aus großen Datenmengen, durch die geeignete Auswahl von Verfahren und Algorithmen.</p> 
 <br>
 
     <h2>CRISP-DM</h2>
@@ -420,13 +420,13 @@ http://admin:admin@192.168.11.254/sd/DCIM/109_0302/IMGP0102.JPG
     <ul>
       <li><span class="pres-bold pres-blue">In der Fotografie</span>: Unerwünschtes beeinflussen -> herausrechnen</li>
       <li><span class="pres-bold pres-blue">Muhammad Atif 2013</span>: Tiefenbild über CA's bestimmen</li>
-      <li><span class="pres-bold pres-blue">Garcia et. al. 2000</span>: Chromatische Aberration für die Gewinnung von Bildinformationen nutzen.</li>
+      <li><span class="pres-bold pres-blue">Garcia et. al. 2000</span>: Chromatische Aberration für die Gewinnung von Bildinformationen nutzen</li>
      </ul>
 
   </section>
 
     <section data-transition="linear" data-transition-speed="medium">
-    <h4>Business Understanding <br></h4>
+    <h4>Business Understanding<br></h4>
     <h3>Chromatische Aberration</h3>
 
 
@@ -472,7 +472,7 @@ http://admin:admin@192.168.11.254/sd/DCIM/109_0302/IMGP0102.JPG
   </section>
 
   <section data-transition="linear" data-transition-speed="medium">
-    <h4>Data Unterstanding <br></h4>
+    <h4>Data Unterstanding<br></h4>
     <h3>Klassifizierung</h3>
 
     <ul>
@@ -571,7 +571,7 @@ Verhältnisse der Momente
 
   <ul>
       <li>Logistische Regression</li>
-      <li>k-nächste-Nachbar-Klassifikator</li>
+      <li>k-nächster-Nachbar-Klassifikator</li> <!-- r? -->
       <li>10-fachen Kreuzvalidierung</li>
   </ul>
 
@@ -629,19 +629,17 @@ Verhältnisse der Momente
       <li>Implementation rein über Kantenkontraste</li>
       <!--<li>Ähnlich dem Verfahren der Kantenkontrastfokusierung</li>-->
   </ul>
+  
   <br><br>
-  Logistische Regression : 
-  <p>
-  <img style="border: 0; padding: 10px;" src="images/eval3.png"> </p>
+  Logistische Regression: 
+  <p><img style="border: 0; padding: 10px;" src="images/eval3.png"></img></p>
 
-  k-nächste-Nachbar-Klassifikator : 
-  <p>
-  <img style="border: 0; padding: 10px;" src="images/eval4.png">  </p>
+  k-nächste-Nachbar-Klassifikator: 
+  <p><img style="border: 0; padding: 10px;" src="images/eval4.png"></img></p>
   </section>
 
   <section data-transition="linear" data-transition-speed="medium">
     <h3>Deployment</h3>
-
   </section>
 
   <section data-transition="linear" data-transition-speed="medium">
@@ -659,7 +657,7 @@ Verhältnisse der Momente
 
 
 <!--  -------------------------------------------------------------------------->
-<section data-transition="linear" data-transition-speed="medium">
+<section data-transition="linear" data-transition-speed="medium"> <!-- copy-paste-fehler? -->
 <section data-transition="linear" data-transition-speed="medium">
   <h2>Fazit</h2>
  
@@ -673,9 +671,9 @@ Verhältnisse der Momente
  <h4>Verfahren zur Fokusdetektion</h4>
  <ul>
     <li>Auflösungs unabhängig</li>
-    <li>Logistische Regression >90% Genauigkeit </li>
+    <li>Logistische Regression > 90% Genauigkeit </li>
     <li>Unterscheidung Frontfokus/Backfokus</li>
-    <li>Andere Optiken ?</li>
+    <li>Andere Optiken?</li>
  </ul>
 
 
@@ -693,10 +691,10 @@ Verhältnisse der Momente
     <h2>Ausblick</h2>
 
     <ul>
-      <li><span class="pres-bold pres-blue">Heatmap</span>: Stark rauschanfällig -> median Filter und weitere Vorverarbeitung</li>
-      <li><span class="pres-bold pres-blue">Fokusdetektion</span>: Testen diverser Objektive (Achromaten), weitere Merkmale </li>
-      <li><span class="pres-bold pres-blue">Fotoassistent</span>: Kommunikation mit Nutzer wie Vorschläge für Verbesserung und Einstellungen </li>
-      <li><span class="pres-bold pres-blue">Nutzerstudie</span>:  </li>
+      <li><span class="pres-bold pres-blue">Heatmap</span>: Stark rauschanfällig -> Median-Filter und weitere Vorverarbeitung</li>
+      <li><span class="pres-bold pres-blue">Fokusdetektion</span>: Testen diverser Objektive (Achromaten), weitere Merkmale</li>
+      <li><span class="pres-bold pres-blue">Fotoassistent</span>: Kommunikation mit Nutzer wie Vorschläge für Verbesserung und Einstellungen</li>
+      <li><span class="pres-bold pres-blue">Nutzerstudie</span>:</li> <!-- fehlt noch? -->
      </ul>
 
   </section>
